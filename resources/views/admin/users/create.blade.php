@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
 
         </div>
-        <div class="col-md-4">
-            <div class="card card-default mt-5">
+        <div class="col-md-6">
+            <div class="card card-primary card-outline mt-5">
                 <div class="card-header">Registro de Usuarios</div>
 
                 <div class="card-body">
@@ -31,11 +31,6 @@
                         <div class="form-group">
                             <label for="last_name"> Apellidos </label>
                             <input type="text" name="last_name" class="form-control">        
-                        </div>
-
-                        <div class="form-group">
-                            <label for="age"> Edad </label>
-                            <input type="number" name="age" class="form-control">        
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -80,83 +75,94 @@
                         </div>
                       
                         <div class="form-group">
-                            <select name="province" id="" class="form-control">
+                            <select name="name" id="" class="form-control">
 
                                 <option value=""> Seleccione la Provincia </option>
                                 
                                 @foreach ($provincias as $provincia)
                                     <option value="{{ $provincia->id }}"> {{ $provincia->name }} </option>
                                 @endforeach
-                                 
+                                  
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <select name="city" id="" class="form-control">
-    
-                                <option value=""> Seleccione la ciudad </option>
+                          <select name="name" id="" class="form-control">
+
+                              <option value=""> Seleccione la ciudad </option>
+                              
+                              @foreach ($cities as $city)
+                                  <option value="{{ $city->id }}"> {{ $city->name }} </option>
+                              @endforeach
                                 
-                                @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}"> {{ $city->name }} </option>
-                                @endforeach
-                                    
-                            </select>
-                            </div>
-    
-                            <div class="form-group">
-                            <label for="address"> Direccion de Habitacion </label>
-                            <textarea name="address" rows="2" class="form-control"></textarea>
-                            </div>
-    
-                            <div class="form-group">
-                            <label for="phone_movil"> Telefono Movil </label>
-                            <input type="tel" name="phone_movil" class="form-control">
-                            </div>
-    
-                            <div class="form-group">
-                            <label for="phone_house"> Telefono Domicilio </label>
-                            <input type="tel" name="phone_house" class="form-control">
-                            </div>
-    
-                            <hr>
-                            <div class="form-group">
-                            <label for="sexo"> Sexo </label>
-                            <br>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="address"> Direccion de Habitacion </label>
+                          <textarea name="address" rows="2" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="phone_movil"> Telefono Movil </label>
+                          <input type="tel" name="phone_movil" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="phone_house"> Telefono Domicilio </label>
+                          <input type="tel" name="phone_house" class="form-control">
+                        </div>
+
+                        <hr>
+                        <div class="form-group">
+                          <label for="sex"> Sexo </label>
+                          <br>
+                          <label>
+                            <input type="radio" name="sex" value="MALE"> Masculino
+                          </label>
+                          <label>
+                            <input type="radio" name="sex" value="FEMALE"> Femenino
+                          </label>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="nationality"> Nacionalidad </label>
+                          <input type="text" name="nationality" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="occupation"> Ocupacion </label>
+                          <input type="text" name="occupation" class="form-control">
+                        </div>
+
+                        <hr>
+                        <div class="form-group">
+                          <label for="civil_status"> Estado Civil </label>
+                          <br>
+                          <label>
+                            <input type="radio" name="civil_status" value="single"> Soltero
+                          </label>
+                          <label>
+                            <input type="radio" name="civil_status" value="married"> Casado
+                          </label>
+                          <label>
+                            <input type="radio" name="civil_status" value="divorced"> Divorciado
+                          </label>
+                        </div>
+                        <hr>
+
+                        <hr>
+                        <div class="form-group">
+                          <label for="role_id"> Rol </label>
+                          <br>  
+                          @foreach ($roles as $role)
                             <label>
-                                <input type="radio" name="sexo" value="MALE"> Masculino
+                              <input type="radio" name="role_id" value="{{ $role->id }}"> {{ $role->name }}
                             </label>
-                            <label>
-                                <input type="radio" name="sexo" value="FEMALE"> Femenino
-                            </label>
-                            </div>
-                            <hr>
-    
-                            <div class="form-group">
-                            <label for="nationality"> Nacionalidad </label>
-                            <input type="text" name="nationality" class="form-control">
-                            </div>
-    
-                            <div class="form-group">
-                            <label for="occupation"> Ocupacion </label>
-                            <input type="text" name="occupation" class="form-control">
-                            </div>
-    
-                            <hr>
-                            <div class="form-group">
-                            <label for="civil_status"> Estado Civil </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="civil_status" value="single"> Soltero
-                            </label>
-                            <label>
-                                <input type="radio" name="civil_status" value="married"> Casado
-                            </label>
-                            <label>
-                                <input type="radio" name="civil_status" value="divorced"> Divorciado
-                            </label>
-                            </div>
-                            <hr>
-      
+                          @endforeach
+                        <hr>
+
                         <div class="form-group">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary float-right">
@@ -164,7 +170,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

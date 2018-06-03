@@ -7,8 +7,8 @@
         <div class="col-md-4">
 
         </div>
-        <div class="col-md-4 mt-5">
-            <div class="card card-default">
+        <div class="col-md-4">
+            <div class="card card-default mt-5">
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
