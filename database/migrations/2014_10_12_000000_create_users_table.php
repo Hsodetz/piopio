@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('identification_document');
+            $table->integer('country_id');
+            $table->integer('state_id');
             $table->text('address');
             $table->string('phone_movil');
             $table->string('phone_house');

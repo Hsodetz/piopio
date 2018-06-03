@@ -1,5 +1,5 @@
-@extends('layouts.master')
 @extends('layouts.appdos')
+@extends('layouts.master')
 @section('content')
 <div class="container">
     <div class="row">
@@ -80,6 +80,8 @@
                         </div>
 
                          <div class="form-group">
+                            <label for="country">Seleccione Provincia</label>
+                            <select id="country" class="form-control" name="country_id">
                                 <option selected="selected" value="">Selecccione la Provincia</option>
                                 @foreach($countries as $country)
                                     <option value={{ $country->id }}>{{ $country->name }}</option>
@@ -87,6 +89,8 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="state">Seleccione Ciudad</label>
+                            <select id="state" class="form-control" name="state_id"></select>
                         </div>
     
                             <div class="form-group">
