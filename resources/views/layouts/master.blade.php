@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> @yield('title') </title>
 
-  <link rel="icon" type="image/png" href="/imagenes/pollito.png" />
+  
 
   <link href="{{ asset('/admin-lte/plugins/font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/admin-lte/dist/css/adminlte.css') }}" rel="stylesheet">

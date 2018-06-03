@@ -84,3 +84,8 @@ Route::get('permissions/{permission}/edit', 'Admin\PermissionController@edit')->
 Route::delete('permissions/{permission}', 'Admin\PermissionController@destroy')->name('permissions.destroy')
         ->middleware('permission:permissions.destroy');
 
+Route::resource('locations', 'LocationController');
+Route::get('get-state-list','LocationController@getStateList');
+Route::get('get-city-list','LocationController@getCityList');
+Route::get('get-state-list','Auth\RegisterController@getStateList1');
+ 

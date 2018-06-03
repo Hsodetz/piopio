@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Country extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,19 +13,18 @@ class City extends Model
      */
     protected $fillable = [
         'name',
-        'state_id',
     ];
 
-    public function state()
+    public function states()
     {
-        return $this->belongsTo(State::class);
+        return $this->hasMany(State::class);
     }
 
     public function location()
     {
         return $this->hasOne(Location::class);
     }
-
+    
     public function user()
     {
         return $this->hasOne(User::class);

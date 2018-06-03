@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@extends('layouts.appdos')
 @section('content')
 <div class="container">
     <div class="row">
@@ -78,30 +78,16 @@
                             <label for="identification_document">Documento de Identificacion</label>
                             <input type="text" name="identification_document" class="form-control">
                         </div>
-                      
-                        <div class="form-group">
-                            <select name="province" id="" class="form-control">
 
-                                <option value=""> Seleccione la Provincia </option>
-                                
-                                @foreach ($provincias as $provincia)
-                                    <option value="{{ $provincia->id }}"> {{ $provincia->name }} </option>
+                         <div class="form-group">
+                                <option selected="selected" value="">Selecccione la Provincia</option>
+                                @foreach($countries as $country)
+                                    <option value={{ $country->id }}>{{ $country->name }}</option>
                                 @endforeach
-                                 
                             </select>
                         </div>
-
                         <div class="form-group">
-                            <select name="city" id="" class="form-control">
-    
-                                <option value=""> Seleccione la ciudad </option>
-                                
-                                @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}"> {{ $city->name }} </option>
-                                @endforeach
-                                    
-                            </select>
-                            </div>
+                        </div>
     
                             <div class="form-group">
                             <label for="address"> Direccion de Habitacion </label>
@@ -171,4 +157,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    @include('auth.partials.scripts.dependent-selects')
 @endsection

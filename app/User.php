@@ -6,6 +6,7 @@ use Caffeinated\Shinobi\Traits\ShinobiTrait;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 use Caffeinated\Shinobi\Models\Role; //Hacemos uso para usar Role::
 
@@ -27,8 +28,8 @@ class User extends Authenticatable
         'email', 
         'password', 
         'identification_document', 
-        'province', 
-        'city',
+        'country_id', 
+        'state_id',
         'address', 
         'phone_movil',
         'phone_house',
@@ -50,6 +51,16 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsToMany(Role::class);// se debe usar de esta manera para tabla pivote
+    }
+
+        public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
     }
  
 }
